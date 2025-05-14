@@ -11,6 +11,20 @@ const postForm = () => {
         public: false,
     })
 
+    // definizione della funzione che gestisce il cambiamento dei cambi input
+    const handleChange = (e) => {
+        // destratturazione del target per recuperare le proprietà del campo input modificato
+        const { name, value, type, checked } = e.target;
+
+        // imposto la variabile di stato richiamando setFormData
+        setFormData({
+            ...prevData,
+            [name]: type === "checkbox" ? checked : value,
+        })
+    }
+
+
+
 
     return (
         <div className="container mt-5">
@@ -24,7 +38,9 @@ const postForm = () => {
                     <input
                         name='author'
                         type="text"
-                        className="form-control" />
+                        className="form-control"
+                        value={formData.author}
+                        onChange={handleChange} />
                 </div>
 
                 <div className="mb-3">
@@ -34,7 +50,9 @@ const postForm = () => {
                     <input
                         name='title'
                         type="text"
-                        className="form-control" />
+                        className="form-control"
+                        value={formData.title}
+                        onChange={handleChange} />
                 </div>
 
                 <div className="mb-3">
@@ -44,14 +62,18 @@ const postForm = () => {
                     <textarea
                         name="body"
                         id=""
-                        className="form-control"></textarea>
+                        className="form-control"
+                        value={formData.body}
+                        onChange={handleChange}></textarea>
                 </div>
 
                 <div className="mb-3 form-check">
                     <input
-                        name='pubblico'
+                        name='public'
                         type="checkbox"
-                        className="form-check-input" />
+                        className="form-check-input"
+                        checked={formData.public}
+                        onChange={handleChange} />
                     <label htmlFor="" className="form-check-label">Pubblico</label>
                 </div>
 
