@@ -32,10 +32,10 @@ const postForm = () => {
                     <label htmlFor="" className="form-label">
                         Testo del post
                     </label>
-                    <input
-                        name='body'
-                        type="text"
-                        className="form-control" />
+                    <textarea
+                        name="body"
+                        id=""
+                        className="form-control"></textarea>
                 </div>
 
                 <div className="mb-3 form-check">
