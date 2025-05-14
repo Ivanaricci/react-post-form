@@ -3,6 +3,15 @@ import { useState } from 'react'
 import axios from 'axios'
 
 const postForm = () => {
+
+    const [formData, setFormData] = useState({
+        author: "",
+        title: "",
+        body: "",
+        public: false,
+    })
+
+
     return (
         <div className="container mt-5">
             <h2 className="mb-4">Crea un nuovo post</h2>
