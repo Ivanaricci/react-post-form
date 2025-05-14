@@ -23,13 +23,22 @@ const postForm = () => {
         })
     }
 
+    // definizione della funzione che invia la form
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios
+            .post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", formData)
+            .then((resp) => {
+                console.log(resp.data)
 
+            })
+    }
 
 
     return (
         <div className="container mt-5">
             <h2 className="mb-4">Crea un nuovo post</h2>
-            <form action="">
+            <form onSubmit={handleSubmit}>
 
                 <div className="mb-3">
                     <label htmlFor="" className="form-label">
