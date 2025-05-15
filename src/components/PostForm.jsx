@@ -18,7 +18,7 @@ const postForm = () => {
 
         // imposto la variabile di stato richiamando setFormData
         setFormData({
-            ...prevData,
+            ...formData,
             [name]: type === "checkbox" ? checked : value,
         })
     }
